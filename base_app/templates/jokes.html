@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    {%load bootstrap4%}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Yarik Shutit</title>
+    {%bootstrap_css%}
+    {%bootstrap_javascript%}
+
+    <style>
+        .card {
+            margin: 20px;
+        }
+
+        #jokes {
+            align-content: center;
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <div id="jokes" class="container-fluid row">
+        {% for joke in jokes %}
+            <div class="card col-sm" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">{{joke.title}}</h5>
+                    <p class="card-text">{{ joke.count }}</p>
+                    <form action="{% url 'joke_add_one' joke.id%}" method="POST">
+                            {% csrf_token %}
+                            <input type="submit" class="btn btn-primary">
+                    </form>
+                </div>
+            </div>
+        {% endfor %}
+        </div>
+    </section>
+
+</body>
+</html>

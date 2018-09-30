@@ -1,0 +1,1 @@
+web: gunicorn yarik_shutit.wsgi --log-file -
