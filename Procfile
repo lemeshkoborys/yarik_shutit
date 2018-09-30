@@ -1,1 +1,1 @@
-web: gunicorn yarik_shutit.wsgi --log-file -
+web: gunicorn yarik-shutit.wsgi --log-file -
