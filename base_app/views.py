@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from .models import Joke
 
 
@@ -12,6 +12,6 @@ def joke_add_one(request, joke_id):
     if request.method == 'POST':
         joke.count += 1
         joke.save()
-        return render(request, 'jokes.html', {'jokes': Joke.objects.all().order_by('title')})
+        return redirect('jokes_render')
     else:
         return render(request, '404.html')
