@@ -24,10 +24,11 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = '1%wot9f^2x(@)s1mj94@bnwd_xf3nbknl&#@f9a64*i5m%!1wi'
 
+SECRET_KEY = dj_database_url.config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['localhost', '185.223.113.235', '127.0.0.1']
+ALLOWED_HOSTS = ['localhost', 'yarik-shutit.herokuapp.com', '127.0.0.1']
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
@@ -98,6 +99,7 @@ DATABASES = {
 }
 
 DATABASES['default'] = dj_database_url.config(default='postgres://wggokrtfkxlmza:babc8f1d5313136524af4b0822c414dd38e75641d5915c5fc3f8b16c5c0972b5@ec2-54-163-246-5.compute-1.amazonaws.com:5432/dfr7f9qa3r2of7')
+DATABASES['default'] = dj_database_url.parse('postgres://wggokrtfkxlmza:babc8f1d5313136524af4b0822c414dd38e75641d5915c5fc3f8b16c5c0972b5@ec2-54-163-246-5.compute-1.amazonaws.com:5432/dfr7f9qa3r2of7', conn_max_age=600)
 
 
 # Password validation
