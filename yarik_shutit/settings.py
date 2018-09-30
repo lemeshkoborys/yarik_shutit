@@ -11,6 +11,9 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 """
 
 import os
+import dj_database_url
+
+DATABASES['default'] = dj_database_url.config(default='postgres://wggokrtfkxlmza:babc8f1d5313136524af4b0822c414dd38e75641d5915c5fc3f8b16c5c0972b5@ec2-54-163-246-5.compute-1.amazonaws.com:5432/dfr7f9qa3r2of7')
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -83,16 +86,16 @@ WSGI_APPLICATION = 'yarik_shutit.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'yarik_shutit_db',
-        'USER': 'yarik_shutit_user',
-        'PASSWORD': 'Qwe123qwe',
-        'HOST': 'localhost',
-        'PORT': '',
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': 'yarik_shutit_db',
+#         'USER': 'yarik_shutit_user',
+#         'PASSWORD': 'Qwe123qwe',
+#         'HOST': 'localhost',
+#         'PORT': '',
+#     }
+# }
 
 
 # Password validation
